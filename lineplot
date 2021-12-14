@@ -1,0 +1,7 @@
+sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 2.5})
+plt.figure(figsize=(10,6))
+ax = sns.lineplot(x='year', y='employment', hue='field', style='gender', ci=None, data=employment_new)
+ax.set_title('Labor Force Occupations in General')
+ax.set_xlabel('')
+ax.set_ylabel('% share')
+ax.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
