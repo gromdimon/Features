@@ -1,0 +1,13 @@
+# Create masks to filter employment dataframe
+mask00 = (employment_new.field == 'AGR') & (employment_new.gender == 'MA')
+mask01 = (employment_new.field == 'AGR') & (employment_new.gender == 'FE')fig, axs = plt.subplots(ncols=2, figsize=(18,6))
+sns.set_context("notebook", font_scale=1.3, rc={"lines.linewidth": 2.})
+sns.lineplot(x='year', y='employment', hue='country_code', data=employment_new[mask00], legend=False, ax=axs[0])
+axs[0].set_title('Male Employment in Agriculture')
+axs[0].set_ylabel('% Share')
+axs[0].set_xlabel('')
+sns.lineplot(x='year', y='employment', hue='country_code', data=employment_new[mask01], ax=axs[1])
+axs[1].set_title('Female Employment in Agriculture')
+axs[1].set_ylabel('')
+axs[1].set_xlabel('')
+axs[1].legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
